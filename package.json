@@ -1,12 +1,13 @@
 {
-	"name": "hardhat-project",
-	"scripts": {
-		"c": "npx hardhat compile"
-	},
-	"devDependencies": {
-		"@nomicfoundation/hardhat-toolbox": "^2.0.2",
-		"dotenv": "^16.3.1",
-		"hardhat": "^2.17.4"
-	}
+  "name": "hardhat-project",
+  "scripts": {
+    "start": "node index.js",
+    "c": "npx hardhat compile",
+    "build": "cd client && npm install && npm run build"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.17.4"
+  }
 }
-
