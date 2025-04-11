@@ -13,7 +13,7 @@ export function NavBarConnect() {
 	const connectWallet = async () => {
 		try {
 			const injected = await new InjectedConnector({
-				supportedChainIds: [11155111],
+				supportedChainIds: [534353, 5, 534352, 137],
 			});
 			await activate(injected);
 		} catch (e) {
@@ -33,6 +33,9 @@ export function NavBarConnect() {
 			<Container>
 				<Navbar.Brand href="#home">On-chain Tic Tac Toe</Navbar.Brand>
 				<Nav className="justify-content-end">
+					<Nav.Link href="https://github.com/gaurangtorvekar/onchain-tictactoe" target="_blank">
+						Github
+					</Nav.Link>
 					{account ? (
 						<NavDropdown id="nav-dropdown-dark-example" title={truncateEthAddress(account)}>
 							<NavDropdown.Item href="#action/3.1" onClick={disconnectWallet}>

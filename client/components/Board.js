@@ -160,13 +160,13 @@ export default function Board() {
 			<Container>
 				{show ? (
 					<Alert variant="info" onClose={() => setShow(false)} dismissible>
-						{/*This game works on <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.*/}
+						This game works on <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				) : null}
 
 				{connectedOrNot ? null : (
 					<Alert variant="danger" onClose={() => setShow(false)} dismissible>
-						{/*Please make sure that your Metamask is connected to <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.*/}
+						Please make sure that your Metamask is connected to <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				)}
 
@@ -195,7 +195,7 @@ export default function Board() {
 								<div>
 									<br />
 									Your game contract is{" "}
-									<a href={`https://goerli.etherscan.io/address/${selectedGame.gameContract}`} target="_blank">
+									<a href={`https://blockscout.scroll.io/address/${selectedGame.gameContract}`} target="_blank">
 										{truncateEthAddress(selectedGame.gameContract)}
 									</a>
 								</div>
