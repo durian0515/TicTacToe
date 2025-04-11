@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Table, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Table, Container, Row, Col, Card } from "react-bootstrap";
 import { tictactoe_abi, tictactoe_bytecode, registry_abi, registry_address } from "../lib/contract_config";
 import { ethers } from "ethers";
 import { useWeb3React } from "@web3-react/core";
@@ -41,24 +41,38 @@ export function NewGame() {
 	};
 
 	return (
-		<>
-			<Form onSubmit={createNewGame}>
-				<Row className="mb-3">
-					<Form.Group as={Col} controlId="formGridCity">
-						<Form.Label>First Player</Form.Label>
-						<Form.Control name="firstPlayer" disabled value={account ? `${account} (YOU)` : "0x"} />
-					</Form.Group>
+		<Card className="mb-4 shadow-sm">
+			<Card.Header className="bg-primary text-white">
+				<Card.Title className="mb-0">Start a New Game</Card.Title>
+			</Card.Header>
+			<Card.Body>
+				<Form onSubmit={createNewGame}>
+					<Row className="mb-3">
+						<Form.Group as={Col} controlId="formGridCity">
+							<Form.Label>First Player</Form.Label>
+							<Form.Control 
+								name="firstPlayer" 
+								disabled 
+								value={account ? `${account} (YOU)` : "0x"} 
+								className="bg-light"
+							/>
+						</Form.Group>
 
-					<Form.Group as={Col} controlId="formGridState">
-						<Form.Label>Second Player</Form.Label>
-						<Form.Control name="secondPlayer" placeholder="0x" />
-					</Form.Group>
-				</Row>
-				<Button variant="primary" type="submit">
-					Start New Game
-				</Button>
-			</Form>
-		</>
+						<Form.Group as={Col} controlId="formGridState">
+							<Form.Label>Second Player</Form.Label>
+							<Form.Control 
+								name="secondPlayer" 
+								placeholder="Enter Ethereum address (0x...)" 
+								className="border-primary"
+							/>
+						</Form.Group>
+					</Row>
+					<Button variant="primary" type="submit" className="w-100">
+						Start New Game
+					</Button>
+				</Form>
+			</Card.Body>
+		</Card>
 	);
 }
 

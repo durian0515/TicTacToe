@@ -157,22 +157,22 @@ export default function Board() {
 		<>
 			<ToastContainer />
 			<NavBarConnect />
-			<Container>
+			<Container className="py-4">
 				{show ? (
-					<Alert variant="info" onClose={() => setShow(false)} dismissible>
+					<Alert variant="info" onClose={() => setShow(false)} dismissible className="mb-4">
 						This game works on <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				) : null}
 
 				{connectedOrNot ? null : (
-					<Alert variant="danger" onClose={() => setShow(false)} dismissible>
+					<Alert variant="danger" onClose={() => setShow(false)} dismissible className="mb-4">
 						Please make sure that your Metamask is connected to <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				)}
 
-				<Row>
-					<Col md={4}>
-						<Row>
+				<Row className="mb-4">
+					<Col md={7}>
+						<div className="game-board-container">
 							<div className="board-row">
 								{renderSquare(0)}
 								{renderSquare(1)}
@@ -188,12 +188,10 @@ export default function Board() {
 								{renderSquare(7)}
 								{renderSquare(8)}
 							</div>
-						</Row>
-						<Row>
-							<br />
+						</div>
+						<div className="game-status mt-3">
 							{selectedGame && selectedGame.gameContract ? (
-								<div>
-									<br />
+								<div className="contract-info mb-2">
 									Your game contract is{" "}
 									<a href={`https://blockscout.scroll.io/address/${selectedGame.gameContract}`} target="_blank">
 										{truncateEthAddress(selectedGame.gameContract)}
@@ -202,23 +200,21 @@ export default function Board() {
 							) : null}
 
 							<div className="status">{status}</div>
-						</Row>
-					</Col>
-					<Col md={8}>
-						<div>
-							<NewGame />
 						</div>
-						{/* <br /> */}
-						<hr></hr>
-						{/* <br /> */}
-						<div>
-							<AllGames selectedGameFunc={selectedGameFunc} />
+					</Col>
+					<Col md={5}>
+						<div className="settings-container">
+							<NewGame />
+							<div className="mt-4">
+								<AllGames selectedGameFunc={selectedGameFunc} />
+							</div>
 						</div>
 					</Col>
 				</Row>
-				<hr></hr>
 				<Row>
-					<HowTo />
+					<Col>
+						<HowTo />
+					</Col>
 				</Row>
 			</Container>
 		</>
