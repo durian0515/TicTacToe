@@ -7,7 +7,7 @@ export function useEagerConnect() {
 	const [tried, setTried] = useState(false);
 
 	const injected = new InjectedConnector({
-		supportedChainIds: [534353, 5, 534352, 137],
+		supportedChainIds: [11155111, 534353, 5, 534352, 137],
 	});
 
 	useEffect(() => {
