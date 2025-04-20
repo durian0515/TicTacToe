@@ -152,5 +152,5 @@ export const registry_abi = [
 	},
 ];
 
-export const registry_address = "0x2fe32E360D383db9071ae54023f08473ad2B5AEB";
+export const registry_address = "0x3d1F680E46641135bcA62Cc68CBCB7117eBAf9bb";
 
