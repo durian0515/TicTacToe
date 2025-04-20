@@ -160,13 +160,13 @@ export default function Board() {
 			<Container className="py-4">
 				{show ? (
 					<Alert variant="info" onClose={() => setShow(false)} dismissible className="mb-4">
-						This game works on <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
+						This game works on <Alert.Link href="https://sepolia.etherscan.io">Sepolia Testnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				) : null}
 
 				{connectedOrNot ? null : (
 					<Alert variant="danger" onClose={() => setShow(false)} dismissible className="mb-4">
-						Please make sure that your Metamask is connected to <Alert.Link href="https://scroll.io">Scroll Mainnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
+						Please make sure that your Metamask is connected to <Alert.Link href="https://sepolia.etherscan.io">Sepolia Testnet</Alert.Link>. Please choose the correct chain on Metamask to proceed.
 					</Alert>
 				)}
 
@@ -193,7 +193,7 @@ export default function Board() {
 							{selectedGame && selectedGame.gameContract ? (
 								<div className="contract-info mb-2">
 									Your game contract is{" "}
-									<a href={`https://blockscout.scroll.io/address/${selectedGame.gameContract}`} target="_blank">
+									<a href={`https://sepolia.etherscan.io/address/${selectedGame.gameContract}`} target="_blank">
 										{truncateEthAddress(selectedGame.gameContract)}
 									</a>
 								</div>

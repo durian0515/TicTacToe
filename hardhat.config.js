@@ -8,6 +8,10 @@ require("@nomicfoundation/hardhat-toolbox");
 const keys = process.env.WALLET;
 const scrollUrl = "https://alpha-rpc.scroll.io/l2";
 
+// Sepolia Testnet Configuration
+const sepoliaRpcUrl = "https://eth-sepolia.public.blastapi.io";
+const sepoliaChainId = 11155111;
+
 module.exports = {
 	solidity: "0.8.19",
 	hardhat: {
@@ -18,10 +22,11 @@ module.exports = {
 		apiKey: {
 			polygonMumbai: process.env.MUMBAI_KEY,
 			scroll: process.env.ETHERSCAN,
-			scroll_sepolia: "abc",
+			scroll_sepolia: "abc", // Note: This seems like a placeholder for Scroll Sepolia
 			arbitrumGoerli: process.env.ARBISCAN,
-			// arbg: process.env.ARBISCAN,
 			scrollMainnet: process.env.SCROLLSCAN,
+			// Add Sepolia Etherscan API Key if you have one
+			sepolia: process.env.ETHERSCAN_API_KEY // Make sure to set ETHERSCAN_API_KEY in your .env for Sepolia verification
 		},
 		customChains: [
 			{
@@ -68,16 +73,22 @@ module.exports = {
 		],
 	},
 	networks: {
+		// Add Sepolia Network Configuration
+		sepolia: {
+			url: sepoliaRpcUrl,
+			accounts: keys ? [keys] : [], // Use environment variable for account keys
+			chainId: sepoliaChainId
+		},
 		scroll_alpha: {
 			url: scrollUrl,
-			accounts: [keys],
+			accounts: keys ? [keys] : [],
 		},
 
 		scroll: {
 			gasLimit: 400000000,
 			gasPrice: 400000000,
 			url: "https://rpc.scroll.io ",
-			accounts: [keys],
+			accounts: keys ? [keys] : [],
 		},
 
 		mumbai: {
@@ -86,15 +97,15 @@ module.exports = {
 			gasPrice: 8000000000,
 			gasLimit: 50000000000000,
 			url: process.env.MUMBAI_RPC,
-			accounts: [keys],
+			accounts: keys ? [keys] : [],
 		},
 		scrollMainnet: {
 			url: "https://rpc.scroll.io",
-			accounts: [keys],
+			accounts: keys ? [keys] : [],
 		},
 		arbg: {
 			url: "https://arbitrum-goerli.blockpi.network/v1/rpc/public",
-			accounts: [keys],
+			accounts: keys ? [keys] : [],
 		},
 	},
 	settings: {
